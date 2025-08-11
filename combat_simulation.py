@@ -1,15 +1,13 @@
 import random
 from typing import Dict, List
-from models import Character, CombatResult
-from combat_engine import CombatEngine
-from character_manager import CharacterManager
 
 
 class CombatSimulation:
     """Main combat simulation controller"""
 
-    def __init__(self, character_manager: CharacterManager):
+    def __init__(self, character_manager):
         self.char_manager = character_manager
+        from combat_engine import CombatEngine  # Fixed: import here
         self.combat_engine = CombatEngine()
 
     def simulate_combat(self, player_name: str, enemies: List[Character],
